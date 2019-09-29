@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<script type="text/javascript">
+			window.onload = function(){
+				var form = document.getElementById("form");
+				var btn_radio = document.getElementById("radio");
+				var add_optionbtn = document.getElementById("add_optionbtn");
+				var btn_multiple = document.getElementById("multiple");
+				var quesiton = document.getElementById("quesiton");
+				var i = 2;
+				btn_radio.onclick = function(){
+					var iss = document.getElementById("issue");
+					var div1 = document.createElement("div");
+					var div2 = document.createElement("div");
+					var div3 = document.createElement("div");
+					var div4 = document.createElement("div");
+					var div5 = document.createElement("div");
+					var div6 = document.createElement("div");
+					var span = document.createElement("span");
+					var input1 = document.createElement("input");
+					var input2 = document.createElement("input");
+					var a1 = document.createElement("a");
+					var a2 = document.createElement("a");
+					
+					div1.setAttribute("class","radio");
+					div2.setAttribute("class","del_radio");
+					div3.setAttribute("class","num");
+					div4.setAttribute("class","surveyQuestion");
+					div5.setAttribute("class","option");
+					div5.setAttribute("id","option");
+					div6.setAttribute("class","add_option");
+					span.setAttribute("class","num_text");
+					span.setAttribute("id","numOfTitle");
+					input1.setAttribute("class","s_question");
+					input1.setAttribute("name","surverQuestion");
+					input1.setAttribute("value","请选择一个选项（单选）");
+					input2.setAttribute("class","s_option");
+					input2.setAttribute("name","surveyOption");
+					input2.setAttribute("value","选项");
+					a1.setAttribute("id","#");
+					a2.setAttribute("id","add_optionbtn");
+					a2.setAttribute("onclick","fun(this)")
+					
+					a1.innerHTML = "删除";
+					a2.innerHTML = "添加选项";
+					span.innerHTML =i++;
+					
+					quesiton.insertBefore(div1);
+					div1.appendChild(div2);
+					div1.appendChild(div3);
+					div1.appendChild(div4);	
+					div1.appendChild(div5);	
+					div1.appendChild(div6);	
+					div3.appendChild(span);
+					div4.appendChild(input1);
+					div5.appendChild(input2);
+					div5.appendChild(a1);
+					div6.appendChild(a2);
+					
+					div2.onclick = function(){
+						div1.parentNode.removeChild(div1);
+					}
+					num();
+				}
+				btn_multiple.onclick = function(){
+					var div1 = document.createElement("div");
+					var div2 = document.createElement("div");
+					var div3 = document.createElement("div");
+					var div4 = document.createElement("div");
+					var div5 = document.createElement("div");
+					var div6 = document.createElement("div");
+					var span = document.createElement("span");
+					var input1 = document.createElement("input");
+					var input2 = document.createElement("input");
+					var a1 = document.createElement("a");
+					var a2 = document.createElement("a");
+					
+					div1.setAttribute("class","radio");
+					div2.setAttribute("class","del_radio");
+					div3.setAttribute("class","num");
+					div4.setAttribute("class","surveyQuestion");
+					div5.setAttribute("class","option");
+					div5.setAttribute("id","option");
+					div6.setAttribute("class","add_option");
+					span.setAttribute("class","num_text");
+					span.setAttribute("id","numOfTitle");
+					input1.setAttribute("class","s_question");
+					input1.setAttribute("name","surverQuestion");
+					input1.setAttribute("value","请选择多个选项（多选）");
+					input2.setAttribute("class","s_option");
+					input2.setAttribute("name","surveyOption");
+					input2.setAttribute("value","选项");
+					a1.setAttribute("id","#");
+					a2.setAttribute("id","add_optionbtn");
+					a2.setAttribute("onclick","fun(this)");
+					
+					a1.innerHTML = "删除";
+					a2.innerHTML = "添加选项";
+					span.innerHTML =i++;
+					
+					quesiton.appendChild(div1);
+					div1.appendChild(div2);
+					div1.appendChild(div3);
+					div1.appendChild(div4);	
+					div1.appendChild(div5);	
+					div1.appendChild(div6);	
+					div3.appendChild(span);
+					div4.appendChild(input1);
+					div5.appendChild(input2);
+					div5.appendChild(a1);
+					div6.appendChild(a2);
+					
+					
+					div2.onclick = function(){
+						div1.parentNode.removeChild(div1);
+					}
+					
+				}
+				function num(){
+					var num = document.getElementsByTagName("div").length;
+//					alert(num);
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<a class="back_a" href="#">
+				<div class="back"></div>
+			</a>
+			<div class="top_title">问卷标题</div>
+			<div class="top_text">
+				<div class="edi_text">
+					<a href="#"><span>创建项目</span></a>
+					<i class="right_arrows"></i>
+					<a href="#"><span>发布项目</span></a>
+					<i class="right_arrows"></i>
+					<a href="#"><span>统计项目</span></a>
+				</div>
+			</div>
+			<div class="btn_issue">
+				<a class="btn_a" href="preview">预览</a>
+				<a class="btn_a" href="preview">发布</a>	
+			</div>
+		</div>
+		
+		<div class="left_nav">
+			<dl>
+				<dt>选择题</dt>
+				<dd>
+					<label class="dd_btn" id="radio" onclick="">
+						<i></i>
+						单选题
+					</label>
+					<label class="dd_btn" id="multiple" onclick="">
+						<i></i>
+						多选题
+					</label>
+				</dd>
+			</dl>
+		</div>
+		<div class="form">
+			<form  id="form" action="#" method="post">
+				<div class="osurvey_titlte">
+					<div class="survey_titlte">
+						<input class="s_title" type="text" name="surveyTitle" value="问卷标题"/>
+					</div>
+					<div class="survey_titlte">
+						<input class="s_title" type="text" name="surveyDescribe" value="欢迎使用问卷网！这是一份示例问卷。"/>
+					</div>
+				</div>
+				<div id="quesiton">
+					<div class="radio">
+						<div class="del_radio"></div>
+						<div class="num">
+							<span class="num_text" id="numOfTitle" >1</span>
+						</div>
+						<div class="surveyQuestion">
+							<input class="s_question" name="surveyQuestion" value="请选择一个选项"/>
+						</div>
+						<div id="option" class="option">
+							<input class="s_option" name="surveyOption" value="选项" />
+							<a class="del_option" id="del_option">删除</a>
+						</div>
+						<div class="add_option">
+							<a id="add_optionbtn" onclick="fun(this)">添加选项</a>
+						</div>
+					</div>
+				</div>
+				<div class="issue" id="issue">
+					<input type="submit" value="发布" />
+				</div>
+			</form>
+		</div>
+		
+		
+		<div class="preview">
+			
+		</div>
+	</body>
+	
+	
+	
+	<script type="text/javascript">
+		function fun(aa){
+			var bb=aa.parentNode.parentNode.children[3];
+			var input2 = document.createElement("input");
+			var a1 = document.createElement("a");
+			
+			input2.setAttribute("class","s_option");
+			input2.setAttribute("name","surveyOption");
+			a1.setAttribute("id","del_option");
+			a1.setAttribute("class","del_option");
+			a1.innerHTML = "删除";
+			input2.value = "选项";
+			bb.appendChild(input2);
+			bb.appendChild(a1);
+			
+			a1.onclick = function(){
+				bb.removeChild(input2);
+				bb.removeChild(a1);
+			}
+		}
+	</script>
+</html>
